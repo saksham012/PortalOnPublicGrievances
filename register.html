@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+<style>
+	.kitt
+	{
+		width: 25%;
+		height: 21.5%;
+		position: absolute;
+		top: 0px;
+		right: 2px;
+		
+	}
+	.para1{
+		width: 40%;
+		border: 0px solid lightblue;
+		margin-left: 5%;
+		font-family: arial;
+		font-size: 15px;
+		font-weight: bold;
+	}
+	.heading1{
+			width: 45%;
+			<!--border: 2px solid lightblue;-->
+			height: 15px;
+			padding-top: 0px;
+			padding-bottom: 30px;
+			color: red;
+			font-family: arial;
+			margin-left: 5%;
+	}
+	.container{
+		width:90%;
+		margin-left: 5%;
+		border: 1px solid blue;
+		height: 850px;
+		border-radius: 10px;
+	}
+	.upper{
+		height: 40px;
+		background-color: #3978AD;
+		color: White;
+		text-align: center;
+		font-size: 18px;
+		font-family: arial;
+		padding-top: 13px;
+		border-radius: 8px;
+	}
+	.redText{ color: red;}
+	
+	.flag{
+		width: 35%;
+		font-family: arial black;
+		//border: 1px solid blue;
+		text-align: right;
+		font-size: 15px;
+		margin-left: 15px;
+		margin-right: 15px;
+		float: left;
+	}
+	
+	.txtClass{
+		border: 1px solid #D2D1EE;
+		height: 35px;
+		width: 51%;	
+		text-align: left;
+		font-size:14px;;	
+	}
+	select{
+		border: 1px solid #D2D1EE;
+		height: 35px;
+		width: 51%;	
+		text-align: left;
+		font-size:14px;;
+	}
+	#submit
+	{
+		background-color: #3978AD;
+		color: white;
+		height: 30px;
+		margin-left: 38%;;
+	}
+	.lo{
+		color:red;
+		position: absolute;
+		left:200px;
+	}
+</style>
+<script>
+	function validation()
+	{	
+		var x=document.getElementById('Name');
+		var res=1;
+		if(x.value.length == 0){
+			document.getElementById('nam').innerText = "* Please enter name *";
+			res=0;
+		}
+		var male = document.getElementById("male").checked;
+		var female = document.getElementById("female").checked;
+		var transgender = document.getElementById("transgender").checked;
+		if(male == false && female == false && transgender== false){
+			document.getElementById('gender').innerText = "* Please select gender *";
+			res=0;
+		}
+		var y=document.getElementById("mainAdd");
+		if(y.value.length == 0){
+			document.getElementById('address').innerText = "* Please enter address *";
+			res=0;
+		}
+	/*	var sel = document.getElementById("state");
+		//get the selected option
+		var selectedText = sel.options[sel.selectedIndex].text;
+		if(document.registerForm.state.selectedIndex=="")
+		{
+			document.getElementById('state').innerText = "* Please select state *";
+			res=0;
+		}   */
+		var z=document.getElementById("pincode");
+		if(z.value.length == 0){
+			document.getElementById('pin').innerText = "* Please enter Pincode *";
+			res=0;
+		}
+		var numbers= /[0-9]/g;
+		var mob=document.getElementById("mobile");
+		var flag=1;
+		if(mob.value.length==0){
+			document.getElementById('mob').innerText = "* Please enter Mobile Number *";
+			res=0;
+			flag=0;
+		}
+		if(mob.value.length<10 && flag==1){
+			document.getElementById('mob').innerText = "* Please enter Mobile Number *";
+			res=0;
+		}
+		if(mob.value.match(numbers)==false && flag==1){
+			document.getElementById('mob').innerText = "* Please enter the valid Mobile Number *";
+			res=0;
+		}
+		var atTheRate= /[@]/g;
+		var email=document.getElementById("Mail");
+		var count=1;
+		if(email.value.length==0){
+			document.getElementById('email').innerText = "* Please enter E-mail *";
+			res=0;
+			count=0;
+		}
+		if(email.value.match(atTheRate)==false && count==1){
+			document.getElementById('email').innerText = "* Please enter the valid E-mail *";
+			res=0;
+		}
+		var no = document.getElementById("no").checked;
+		var yes = document.getElementById("yes").checked;
+		if(no == false && yes == false ){
+			document.getElementById('exMan').innerText = "* Please select Ex Serviceman *";
+			res=0;
+		}
+		if(res==0)
+			return false;
+		else
+			return true;
+	}
+</script>
+</head>
+
+<body>
+	<div class="kit">
+		<p class="para1">Department Of Administrative Reforms & Public Grievances</p>
+		<h1 class="heading1">Web Portal for Public Grievance</h1>
+	</div>
+	<img src="gree.jpg" alt="grievances" class="kitt">
+	<div class="container">
+		<div class="upper">
+		<a href="main.html" style="color:yellow; float:left;padding-left:20px;"> Home</a>
+		Registration/Sign up Form</div>
+		<div>
+			<p style="width:20%; float:left; margin-left: 2.4%; color: #3978AD; font-family: arial black; font-size: 13px;">Enter Details</p>
+			<p style="width:25%; float:right; margin-right: -1.4%; color: #3978AD; font-family: arial black; font-size: 13px;">Fields marked with <span class="redText">*</span> are mandatory</p>
+		</div>
+		<hr style="width: 95%;"><br>
+		<form name="registerForm" action="http://localhost/IWPProject/reg.php" onsubmit="return validation()" method="post" target="_blank">
+				<p id="nam" class="lo"></p>
+				<div class="flag"><flag for="name">Name<span class="redText">*</span></flag></div>
+				<input class="txtClass" type="text" name="Name" id="Name"> 
+				<br><br>
+				
+				<p id="gender" class="lo"></p>
+				<div class="flag"><flag for="gender">Gender<span class="redText">*</span></flag></div>
+				<input style="width: 35px; height: 25px;" type="radio" value="male" name="gender" id="male"> Male
+				<input style="width: 35px; height: 25px; margin-left:9%;" type="radio" value="female" name="gender" id="female"> Female
+				<input style="width: 35px; height: 25px; margin-left:9%; " type="radio" value="transgender" name="gender" id="transgender"> Transgender
+				<br><br>
+				
+				<p id="address" class="lo"></p>
+				<div class="flag"><flag for="address">Address<span class="redText">*</span></flag></div>
+				<input class="txtClass" type="text" name="address" placeholder="  Premise Number or Name" id="mainAdd"><br><br>
+				<input class="txtClass" type="text" name="address" placeholder="  Sub-locality"  style="margin-left: 37.7%;"><br><br>
+				<input class="txtClass" type="text" name="address" placeholder="  Locality" style="margin-left: 37.7%;">
+				<br><br>
+				
+				<div class="flag"><flag for="country">Country<span class="redText">*</span></flag></div>
+				<select name="country">
+					<option>India</option>
+					<option>USA</option>
+				</select>
+				<br><br>
+				
+				<p id="state" class="lo"></p>
+				<div class="flag"><flag for="state">State<span class="redText">*</span></flag></div>
+				<select name="state" id="state">
+					<option>--Select a State--</option>
+					<option>Tamil Nadu</option>
+					<option>Delhi</option>
+					<option>Uttar Pradesh</option>
+					<option>Haryana</option>
+					<option>Goa</option>
+					<option>Andhra Pradesh</option>
+					<option>Kerela</option>
+				</select>
+				<br><br>
+				
+				<p id="pin" class="lo"></p>
+				<div class="flag"><flag for="pcode">Pincode<span class="redText">*</span></flag></div>
+				<input class="txtClass" type="text" name="pcode" id="pincode">
+				<br><br>
+				
+				<div class="flag"><flag for="phnno">Phone number</flag></div>
+				<input class="txtClass" type="text" name="phnno" placeholder="  Phone number with STD code(e.g 011XXXXXXXX)" ><br><br>
+				
+				<p id="mob" class="lo"></p>
+				<div class="flag"><flag for="mobno">Mobile number<span class="redText">*</span></flag></div>
+				<input class="txtClass" type="text" name="mobno" placeholder="  10 digit mobile number." id="mobile">
+				<br><br>
+				
+				<p id="email" class="lo"></p>
+				<div class="flag"><flag for="email">E-mail address<span class="redText">*</span></flag></div>
+				<input class="txtClass" type="text" name="email" id="Mail"><br><br>
+				
+				<p id="exMan" class="lo"></p>
+				<div class="flag"><flag for="exMan">Are you an Ex Servicemen?<span class="redText">*</span></flag></div>
+				<input style="width: 35px; height: 25px;" type="radio" value="no" name="exMan" id="no">No
+				<input style="width: 35px; height: 25px; margin-left:9%;" type="radio" value="yes" name="exMan" id="yes">Yes
+				<br><br><br>
+				<input id="submit" type="submit" value="Submit">
+		</form>
+	</div>	
+</body>
+</html>

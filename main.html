@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WebPortal</title>
+<style>
+	body{
+		
+	}
+	a{
+		text-decoration: none;
+	}
+	
+	.ss{
+		background-color: grey;
+		width: 50%;
+		margin-left: 40%;
+	}
+
+	.heading1{
+			width: 45%;
+			<!--border: 2px solid lightblue;-->
+			height: 15px;
+			padding-top: 0px;
+			padding-bottom: 30px;
+			color: red;
+			font-family: arial;
+			margin-left: 5%;
+	}
+	
+	.submit{
+		background-color: #5E80D8;
+		margin-left: 40px;
+		color: white;
+		width: 50%;
+		height: 30px;
+	}
+	
+	.officer{
+		background-color: #E32470;
+		margin-left: 14px;
+		color: white;
+		width: 85%;
+		height: 43px;
+	}
+	
+	h4{
+		margin-left: 1%;
+		color: #CA1C67;
+		font-weight: bold;
+	}
+	
+	.kitt
+	{
+	<!--	background-image: url(gree.jpg);
+		background-position: right top;
+		background-repeat: no-repeat;
+		margin-right: 10%;-->
+		width: 25%;
+		height: 21.5%;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		
+	}
+	.para1{
+		width: 40%;
+		border: 0px solid lightblue;
+		margin-left: 5%;
+		font-family: arial;
+		font-size: 15px;
+		font-weight: bold;
+	}
+	.hr1
+	{
+		height: 35px;
+		background-color: #5479D5;
+		
+	}
+	.field1{
+		padding-top: 15px;
+		padding-bottom:15px;
+		width: 80px;
+		border: 1px solid darkblue;
+	
+		margin-left: 0px;;
+		font-family: times;
+	}
+	
+	.wrap{
+		background-color: #E7F1F8;
+		width:100%;
+		height: 900px;
+	}
+	.left{
+		width:230px;
+		float: left;
+		background-color: white;
+		height: 535px;
+		margin-left: 10%;
+		margin-top: 2%;
+	}
+	.right{
+		width:900px;
+		background-color: white;
+		float: right;
+		margin-right:3%;
+		margin-top: 2%;
+		height: 400px;
+		border-top: 4px solid darkblue;
+	}
+	.centered{
+		width:900px;
+		background-color: white;
+		float: right;
+		margin-right:3%;
+		margin-top: 1.5%;
+		height: 400px;
+		border-top: 4px solid darkblue;
+	}
+	
+	#container ul{
+		list-style: none;
+		background-color: blue;
+		
+	}
+	
+	#container ul li{
+		color: red;
+		font-family: arial;
+		width: 155px;
+		font-size: 18px;
+		float: left;
+		text-align: center;
+	}
+	
+<!--	#container ul li:hover{
+	background-color: #D8B7BA;
+	}-->
+	
+	.cont{
+		position: absolute;
+		top: 140px;
+	}
+	
+	
+
+.nav a {
+  display:block;
+  color: white; 
+  position: relative;
+}
+
+.nav li {
+  position: relative;
+}
+.nav > li { 
+  float: left; 
+  border-bottom: 4px #aaa solid; 
+  margin-right: 1px; 
+} 
+<!--.nav > li > a { 
+  margin-bottom: 1px;
+  box-shadow: inset 0 2em .33em -0.5em #555; 
+}-->
+.nav > li:hover, 
+.nav > li:hover > a { 
+  border-bottom-color: orange;
+}
+.nav li:hover > a { 
+  color:orange; 
+}
+	.nav > li:first-child { 
+  border-radius: 4px 0 0 4px;
+} 
+.nav > li:first-child > a { 
+  border-radius: 4px 0 0 0;
+}
+.nav > li:last-child { 
+  border-radius: 0 0 4px 0; 
+  margin-right: 0;
+} 
+.nav > li:last-child > a { 
+  border-radius: 0 4px 0 0;
+}
+.nav li li a { 
+  margin-top: 1px;
+}
+
+.nav li a:first-child:nth-last-child(2):before { 
+  content: ""; 
+  position: absolute; 
+  height: 0; 
+  width: 0; 
+  border: 5px solid transparent; 
+  top: 50% ;
+  right:5px;  
+ }
+ 
+ .nav ul {
+  position: absolute;
+  white-space: nowrap;
+  border-bottom: 5px solid  orange;
+  z-index: 1;
+  left: -99999em;
+}
+.nav > li:hover > ul {
+  left: auto;
+  margin-top: 5px;
+  min-width: 100%;
+}
+.nav > li li:hover > ul { 
+  left: 100%;
+  margin-left: 1px;
+  top: -1px;
+}
+/* arrow hover styling */
+.nav > li > a:first-child:nth-last-child(2):before { 
+  border-top-color: #aaa; 
+}
+.nav > li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent; 
+  border-bottom-color: orange; 
+  margin-top:-5px
+}
+.nav li li > a:first-child:nth-last-child(2):before {  
+  border-left-color: #aaa; 
+  margin-top: -5px
+}
+.nav li li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent; 
+  border-right-color: orange;
+  right: 10px; 
+}
+.lo{
+		color:red;
+		position: absolute;
+		left:170px;
+		font-weight: bold;
+	}
+</style>
+</head>
+<script>
+	function LoginValidation()
+	{	
+		var x=document.getElementById('uname');
+		var res=1;
+		if(x.value.length == 0){
+			document.getElementById('verify').innerText = "* Please fill all the details *";
+			res=0;
+		}
+		var y=document.getElementById('pass');
+		if(y.value.length == 0){
+			document.getElementById('verify').innerText = "* Please fill all the details *";
+			res=0;
+		}
+		if(res==0)
+			return false;
+		else
+			return true;
+	}
+</script>
+<body >
+	<div class="kit">
+		<p class="para1">Department Of Administrative Reforms & Public Grievances</p>
+		<h1 class="heading1">Web Portal for Public Grievance</h1>	
+	</div>
+	<img src="gree.jpg" alt="grievances" class="kitt">
+	<hr style="height:52px; background-color:#3978AD;">
+	<nav id="container" class="cont">
+		<ul class="nav">
+			<li><a href="main.html" style="color:white;">Home</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Centralized_Public_Grievance_Redress_and_Monitoring_System" style="color:white;">About us</a></li>
+			<li><a onclick="alert('Please Login and then you will be redirected')" style="color:white;">View Status</a></li>
+			<li><a onclick="alert('Please Login and then you will be redirected')" style="color:white;">Lodge Grievance&nbsp;&nbsp;&nbsp;</a>
+				<ul>
+					<li><a onclick="alert('Please Login and then you will be redirected')" style="color:white;">Public </a></li>
+					<li><a onclick="alert('Please Login and then you will be redirected')"  style="color:white;">Pension</a></li>
+				</ul 
+			</li>
+			<li><a href="https://pgportal.gov.in/Home/Preview/R3VpZGxpbmVzQXRBR2xhbmNlLnBkZg%3D%3D" style="color:white;">Guidelines</a></li>
+			<li><a href="faq.pdf" style="color:white;" download>FAQ</a></li>
+		</ul>
+	</nav>
+	
+	<div class="wrap">
+		<div class="left">
+			<form action= "http://localhost/IWPProject/login.php" method="post" >
+				<fieldset class="field1">
+					   <b>Select Language</b><br><br>
+					   <input type="radio" value="english" checked>  English  
+					<!--  <input type="radio" value="hindi" > हिन्दी<br><br>-->
+					<br><br>
+					<fieldset id="field2">
+						<legend style="font-weight: bold;">User Login</legend><br>
+						<b>Email Id/Username</b><br><br>
+						<input type="text" name="uname" id="uname" placeholder="Email Id/Username" ><br><br>
+						<b>Password</b><br><br>
+						<input type="password" name="pass" id="pass" placeholder="Password" ><br>
+						<p id="verify" class="lo"></p><br>
+						<br>
+						
+						<input class="submit" type="submit" value="Login">
+						
+						<br><br>
+						<img src="acc.jpg" alt="Go to W3Schools!" width="25" height="25" border="0">
+						<a style="color:#F30712;" href="register.html"target="_blank">Click here to sign up</a><br>
+				<!--		<img src="lock.png" alt="Go to W3Schools!" width="22" height="22" border="0">-->
+				<!--		<a style="color:#358D09;" href="it.html">Forgot Password</a><br>-->
+				<!--		<img src="question.png" alt="Go to W3Schools!" width="22" height="22" border="0">-->
+				<!--		<a style="color:#3A5CD6;" href="it.html">Forgor Username</a><br>-->
+					</fieldset><br><br>
+						
+				</fieldset>
+			</form>
+		</div>
+		<div class="right">
+			<h4>A Platform To Lodge Your Grievances For Quick Redress</h4>
+			<hr>
+			<p style=" margin-left: 2%; font-family: arial; font-size:14px; line-height:1.6; font-weight:510;">Web Partal for Public Grievance Redress is an online
+			web-enabled system. WPFPG is the platform based on web technology
+			which primarily aims to enable submission of grievances by the
+			aggrieved citizens from anywhere and anytime (24x7) basis to
+			Ministries/Departments/Organisations who scrutinize and take
+			action for speedy and favorable redress of these grievances.
+			Tracking grievances is also facilitated on this portal through
+			the system generated unique registration number.</p>
+			<h4 style="color: black; margin-left: 2%; "> Issues which are not taken up for redress</h4>
+			<ul>
+				<li>Subjudice cases or any matter concerning judgment given by any court.</li>
+				<li>Personal and family disputes.</li>
+				<li>RTI matters.</li>
+				<li>Anything that impacts upon territorial integrity of the country orfriendly relations with other countries.</li>
+				<li>Suggestions.<//li>
+			</ul>
+		</div>
+		<div class="centered">
+			<h4>Grievance Statistics For The Year 2018</h4>
+			<hr>
+			<img src="i1.jpg" alt="i1"></img>
+			<p style="font-family: arial; margin-left: 2%;">Disposals include the carry forward receipts of the previous year(s)</p>
+			<hr style="width: 95%;">
+			<img src="logo2.jpg" alt="Go to W3Schools!" style="margin-left: 2%;" width="25" height="25" border="0">
+			<a style="color:#F14454;" href="it.html">Monitoring of Public Grievances and Recommended Systemic Reforms</a>
+			<img src="new.gif" alt="Go to W3Schools!" style="margin-left: 0%;" width="25" height="15" border="0"><br>
+			<img src="logo3.jpg" alt="Go to W3Schools!" style="margin-left: 2%;" width="25" height="15" border="0">
+			<a style="color:#F14454;" href="it.html">Grievance Analysis Dashboard</a>
+			<img src="new.gif" alt="Go to W3Schools!" style="margin-left: 0%;" width="25" height="15" border="0"><br>
+			<hr style="width: 95%;">
+			<h4 style="margin-left: 5%; color:red; padding: 0%; ">Help Desk : cpgrams-darpg[at]nic[dot]in </h4>
+			<h4 style="margin-left: 5%; margin-top: 0%; color: blue;">Note : The words used in the square brackets may be replaced with the respective symbols</h4>
+		</div>
+	</div>
+	
+
+</body>
